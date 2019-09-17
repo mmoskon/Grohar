@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sbml xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" sboTerm="SBO:0000624" version="1" xmlns="http://www.sbml.org/sbml/level3/version1/core" fbc:required="false">
+  <model fbc:strict="true" id="test_model2">
+    <listOfUnitDefinitions>
+      <unitDefinition id="mmol_per_gDW_per_hr">
+        <listOfUnits>
+          <unit exponent="1" kind="mole" multiplier="1" scale="-3"/>
+          <unit exponent="-1" kind="gram" multiplier="1" scale="0"/>
+          <unit exponent="-1" kind="second" multiplier="3600" scale="0"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <fbc:listOfObjectives fbc:activeObjective="obj">
+      <fbc:objective fbc:id="obj" fbc:type="maximize">
+        <fbc:listOfFluxObjectives>
+          <fbc:fluxObjective fbc:reaction="R_r_out_5" fbc:coefficient="1"/>
+        </fbc:listOfFluxObjectives>
+      </fbc:objective>
+    </fbc:listOfObjectives>
+    <listOfParameters>
+      <parameter constant="true" id="cobra_default_lb" sboTerm="SBO:0000626" units="mmol_per_gDW_per_hr" value="-1000"/>
+      <parameter constant="true" id="cobra_default_ub" sboTerm="SBO:0000626" units="mmol_per_gDW_per_hr" value="1000"/>
+      <parameter constant="true" id="cobra_0_bound" sboTerm="SBO:0000626" units="mmol_per_gDW_per_hr" value="0"/>
+    </listOfParameters>
+    <listOfCompartments>
+      <compartment constant="true" id="c" name="c"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" id="M_m1_c" name="metabolite1" compartment="c"/>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" id="M_m2_c" name="metabolite2" compartment="c"/>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" id="M_m3_c" name="metabolite3" compartment="c"/>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" id="M_m4_c" name="metabolite4" compartment="c"/>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" id="M_m5_c" name="metabolite5" compartment="c"/>
+      <species boundaryCondition="false" constant="false" hasOnlySubstanceUnits="false" id="M_m6_c" name="metabolite6" compartment="c"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction fast="false" id="R_r_in_1" reversible="true" name="r in 1" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_default_lb">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m1_c" stoichiometry="1"/>
+        </listOfReactants>
+      </reaction>
+      <reaction fast="false" id="R_r_in_2" reversible="true" name="r in 2" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_default_lb">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m2_c" stoichiometry="1"/>
+        </listOfReactants>
+      </reaction>
+      <reaction fast="false" id="R_r1" reversible="true" name="reaction 1" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_default_lb">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m1_c" stoichiometry="1"/>
+          <speciesReference constant="true" species="M_m2_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" species="M_m3_c" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="R_r2" reversible="true" name="reaction 2" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_default_lb">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m3_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" species="M_m4_c" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="R_r3" reversible="false" name="reaction 3" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_0_bound">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m4_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" species="M_m5_c" stoichiometry="1"/>
+          <speciesReference constant="true" species="M_m6_c" stoichiometry="1"/>
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="R_r_out_5" reversible="false" name="r out 5" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_0_bound">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m5_c" stoichiometry="1"/>
+        </listOfReactants>
+      </reaction>
+      <reaction fast="false" id="R_r_out_6" reversible="false" name="r out 6" fbc:upperFluxBound="cobra_default_ub" fbc:lowerFluxBound="cobra_0_bound">
+        <listOfReactants>
+          <speciesReference constant="true" species="M_m6_c" stoichiometry="1"/>
+        </listOfReactants>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
