@@ -51,6 +51,8 @@ You can direct all your questions, comments and critiques to [miha.moskon@fri.un
 
 Ivan Grohar was a Slovenian Impressionist painter. You can read more about his work on [Wikipedia](https://en.wikipedia.org/wiki/Ivan_Grohar).
 
+### How do I cite Grohar? ###
+Moškon, Miha, Nikolaj Zimic, and Miha Mraz. "Grohar: Automated Visualization of Genome-Scale Metabolic Models and Their Pathways." [Journal of Computational Biology](https://www.liebertpub.com/doi/abs/10.1089/cmb.2017.0209) 25.5 (2018): 505-508.
 ```
 #!python
 
