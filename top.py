@@ -2180,6 +2180,6 @@ class top:
             print(inst)
     
         
-#app = QApplication([])        
+app = QApplication([])        
 t = top()     
-#app.exec()
+app.exec()
